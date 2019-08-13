@@ -1,0 +1,6 @@
+---
+type: AZURE
+config:
+  storage_account: "gsenv110thanos"
+  storage_account_key: "REDACTED"
+  container: "thanos"

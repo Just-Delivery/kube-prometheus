@@ -26,7 +26,7 @@ spec:
         name: node-exporter
         resources:
           limits:
-            cpu: 250m
+            cpu: 102m
             memory: 180Mi
           requests:
             cpu: 102m
@@ -68,7 +68,7 @@ spec:
       hostNetwork: true
       hostPID: true
       nodeSelector:
-        kubernetes.io/os: linux
+        beta.kubernetes.io/os: linux
       securityContext:
         runAsNonRoot: true
         runAsUser: 65534

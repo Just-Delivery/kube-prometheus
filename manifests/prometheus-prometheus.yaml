@@ -13,7 +13,7 @@ spec:
       port: web
   baseImage: quay.io/prometheus/prometheus
   nodeSelector:
-    kubernetes.io/os: linux
+    beta.kubernetes.io/os: linux
   podMonitorSelector: {}
   replicas: 2
   resources:
@@ -30,4 +30,10 @@ spec:
   serviceAccountName: prometheus-k8s
   serviceMonitorNamespaceSelector: {}
   serviceMonitorSelector: {}
+  thanos:
+    baseImage: improbable/thanos
+    objectStorageConfig:
+      key: thanos.yaml
+      name: thanos-objectstorage
+    version: v0.5.0
   version: v2.11.0

@@ -8,9 +8,11 @@ metadata:
 spec:
   ports:
   - name: web
+    nodePort: 30903
     port: 9093
     targetPort: web
   selector:
     alertmanager: main
     app: alertmanager
   sessionAffinity: ClientIP
+  type: NodePort

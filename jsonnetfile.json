@@ -3,11 +3,12 @@
         {
             "name": "kube-prometheus",
             "source": {
-                "local": {
-                    "directory": "jsonnet/kube-prometheus"
+                "git": {
+                    "remote": ".",
+                    "subdir": "jsonnet/kube-prometheus"
                 }
             },
-            "version": ""
+            "version": "."
         }
     ]
 }

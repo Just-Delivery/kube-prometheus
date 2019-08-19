@@ -39,7 +39,7 @@ local k = import 'ksonnet/ksonnet.beta.4/k.libsonnet';
             name: 'slack-notifications',
             slack_configs:[
               {
-                channel: '#harbour-test-grafana',
+                channel: '#harbour-test-garafana',
                 text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
               },
             ],

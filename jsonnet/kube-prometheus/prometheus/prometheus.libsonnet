@@ -265,8 +265,8 @@ local k = import 'ksonnet/ksonnet.beta.4/k.libsonnet';
           jobLabel: 'k8s-app',
           endpoints: [
             {
-              port: 'https-metrics',
-              scheme: 'https',
+              port: 'http-metrics',
+              scheme: 'http',
               interval: '30s',
               honorLabels: true,
               tlsConfig: {
@@ -275,8 +275,8 @@ local k = import 'ksonnet/ksonnet.beta.4/k.libsonnet';
               bearerTokenFile: '/var/run/secrets/kubernetes.io/serviceaccount/token',
             },
             {
-              port: 'https-metrics',
-              scheme: 'https',
+              port: 'http-metrics',
+              scheme: 'http',
               path: '/metrics/cadvisor',
               interval: '30s',
               honorLabels: true,

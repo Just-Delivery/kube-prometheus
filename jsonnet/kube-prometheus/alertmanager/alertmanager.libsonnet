@@ -17,16 +17,17 @@ local k = import 'ksonnet/ksonnet.beta.4/k.libsonnet';
       config: {
         global: {
           resolve_timeout: '5m',
+          slack_api_url: 'https://hooks.slack.com/services/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'
         },
         route: {
           group_by: ['job'],
           group_wait: '30s',
           group_interval: '5m',
           repeat_interval: '12h',
-          receiver: 'null',
+          receiver: 'slack-notifications',
           routes: [
             {
-              receiver: 'null',
+              receiver: 'slack-notifications',
               match: {
                 alertname: 'Watchdog',
               },
@@ -35,7 +36,13 @@ local k = import 'ksonnet/ksonnet.beta.4/k.libsonnet';
         },
         receivers: [
           {
-            name: 'null',
+            name: 'slack-notifications',
+            slack_configs:[
+              {
+                channel: '#harbour-test-grafana',
+                text: "{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}"
+              },
+            ],
           },
         ],
       },
